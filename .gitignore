@@ -1,0 +1,8 @@
+*.asv
+/sbobine/files
+/sbobine/lectures
+/sbobine/reorganized
+/sbobine/word
+/sbobine/__pycache__
+/sbobine/env_sbobine
+*.pyc
