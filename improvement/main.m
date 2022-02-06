@@ -15,15 +15,8 @@ w0 = [0.11; 0.35; 0.278; 0.199; 0.063; 0];      % [-]
 % Generate mechanisms -----------------------------------------------------
 
 min_NR = 6;
-max_NR = 7;
-winner = [-1, 0, 0, 0, -1;
-           1,-1, 0, 0, 0;
-           0, 1,-1, 0, 0;
-           0, 0, 1,-1, 0;
-           0, 0, 0, 0, 1;
-           0, 0, 0, 1, 0];  
-       
-SC_s = {winner};  % Otherwise, use get_mechanisms to generate SC_s
+max_NR = 7;       
+SC_s = get_mechanisms();
 
 % Fit each mechanism ------------------------------------------------------
 
