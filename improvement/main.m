@@ -14,8 +14,9 @@ w0 = [0.11; 0.35; 0.278; 0.199; 0.063; 0];      % [-]
 
 % Generate mechanisms -----------------------------------------------------
 
-min_NR = 6;
-max_NR = 7;       
+min_NR=5;
+max_NR=7;
+
 SC_s = get_mechanisms();
 
 % Fit each mechanism ------------------------------------------------------
@@ -39,12 +40,6 @@ for i = 1:length(SC_s)
     fprintf('mean residual = %f; max residual = %f; total residual = %f\n\n',...
              sum(abs(res))/length(res), max(abs(res)), sum(abs(res)));
          
-    for mm = 1:NR
-        [Ea, A] = arrhenius(k_lsq(:,mm), T_s');
-        Ea_s(mm) = Ea;
-        A_s(mm) = A;
-    end
-         
     schemes(i)   = name;
     residuals(i) = sum(abs(res));
     kinetics{i}  = k_lsq;
@@ -56,7 +51,7 @@ end
 schemes = schemes(I);
 kinetics = kinetics(I);
 
-save('results', 'schemes', 'residuals', 'kinetics', 'Ea_s', 'A_s');
+save('results', 'schemes', 'residuals', 'kinetics');
 
 fprintf("\nSorted Results\n\n");
 fprintf("Scheme %d: residual = %f\n", [schemes residuals]');
